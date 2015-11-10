@@ -1,0 +1,18 @@
+<% provide(:title, "Sign up") %>
+
+<div class="center jumbotron">
+  <h1>Sign up for a new account</h1>
+  
+  <%= form_for :users, url: users_path do |f|  %>
+    <%= f.label "Choose a user name" %>
+    <%= f.text_field :user_name %>
+    
+    <%= f.label "Enter your actual name" %>
+    <%= f.text_field :name %>
+    
+    <%= f.label "Enter your email" %>
+    <%= f.text_field :email %>
+    
+    <%= f.submit "Sign up" %>
+  <% end %>
+</div>
