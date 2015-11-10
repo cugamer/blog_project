@@ -4,6 +4,7 @@
   <h1>Sign up for a new account</h1>
   
   <%= form_for :users, url: users_path do |f|  %>
+    <%= render 'shared/error_messages' %>
     <%= f.label "Choose a user name" %>
     <%= f.text_field :user_name %>
     
