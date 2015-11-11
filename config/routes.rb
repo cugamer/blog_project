@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'posts/new'
-
   get 'sessions/new'
+  get 'posts/user_posts/:id' => 'post#user_posts', as: 'user_posts'
 
   root                     'static#home'
   get 'about'           => 'static#about'
@@ -10,7 +9,8 @@ Rails.application.routes.draw do
   get 'login'           => 'sessions#new'
   post 'login'          => 'sessions#create'
   delete 'logout'       => 'sessions#destroy'
-  
+
+
   resources 'users'
   resources 'posts'
 
