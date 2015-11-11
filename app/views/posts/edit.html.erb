@@ -1,0 +1,13 @@
+<% provide(:title, "Edit Post") %>
+
+<%= form_for :post, url: posts_path(@post), method: :patch do |f| %>
+  <%= render 'shared/error_messages' %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  
+  <%= f.submit "Create post" %>
+
+<% end %>
