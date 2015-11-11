@@ -1,5 +1,15 @@
 <% provide(:title, @post.title.truncate(20)) %>
 
+
+<p>
+<%= link_to "Delete post?", post_path(@post.id), 
+      method: :delete, 
+      data: {confirm: 'Are you sure?' } %>
+<%= link_to "Edit Post", edit_post_path(@post.id) %>
+  
+</p>
+
+
 <div class="center jumbotron">
   <h2><%= @post.title %></h2>
   <div class="post-text">
@@ -11,7 +21,5 @@
          TextHelper.html#method-i-simple_format -->
   </div>
   
-  <%= link_to "Delete post?", post_path(@post.id), 
-      method: :delete, 
-      data: {confirm: 'Are you sure?' } %>
+  
 </div>
