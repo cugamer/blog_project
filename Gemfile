@@ -33,6 +33,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Implement pagination
 gem 'will_paginate', '~>3.0.7'
 
+# Implement faker for generating seeds
+gem 'faker', '1.4.2'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
