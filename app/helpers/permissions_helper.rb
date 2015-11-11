@@ -11,4 +11,8 @@ module PermissionsHelper
     @user = User.find(post.user_id)
     redirect_to(root_url) unless @user == current_user
   end
+  
+  def authorized_user?(page_owner_user_id)
+    current_user.id.to_s == page_owner_user_id.to_s
+  end
 end
