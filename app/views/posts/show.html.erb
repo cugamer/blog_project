@@ -1,2 +1,15 @@
-<%= @post.title %>
-<%= @post.body %>
+<% provide(:title, @post.title.truncate(20)) %>
+
+<div class="center jumbotron">
+  <h2><%= @post.title %></h2>
+  <div class="post-text">
+    <%= simple_format @post.body %>
+    <!-- simple_format is a helper which formats the text into HTML using basic
+         rules.  Without this the line breaks are not preserved and text turns
+         into one big blob.  More info here:
+         http://api.rubyonrails.org/classes/ActionView/Helpers/
+         TextHelper.html#method-i-simple_format -->
+  </div>
+  
+</div>
+
