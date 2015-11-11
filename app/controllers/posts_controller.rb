@@ -5,13 +5,17 @@ class PostsController < ApplicationController
   
   def create
     @user = current_user
-    post = @user.posts.new(post_params)
-    if post.save
-      
+    @post = @user.posts.new(post_params)
+    if @post.save
+      redirect_to @post
     else
-      flash.now[:errors] = post.errors.full_messages
+      flash.now[:errors] = @post.errors.full_messages
       render new_post_path
     end
+  end
+  
+  def show
+    @post = Post.find(params[:id])
   end
   
   private
