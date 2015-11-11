@@ -10,4 +10,8 @@
          http://api.rubyonrails.org/classes/ActionView/Helpers/
          TextHelper.html#method-i-simple_format -->
   </div>
+  
+  <%= link_to "Delete post?", post_path(@post.id), 
+      method: :delete, 
+      data: {confirm: 'Are you sure?' } %>
 </div>
