@@ -32,6 +32,10 @@ class PostsController < ApplicationController
     redirect_to user_posts_path(current_user[:id])
   end
   
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
   private
     def post_params
       params.require(:post).permit(:title, :body)
