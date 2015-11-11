@@ -1,11 +1,11 @@
-<% if @user.errors.any? %>
+<% if flash[:errors] %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      The form contains <%= pluralize(@user.errors.count, "error") %>.
+      The form contains <%= pluralize(flash[:errors].count, "error") %>.
     </div>
     
     <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+      <% flash[:errors].each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

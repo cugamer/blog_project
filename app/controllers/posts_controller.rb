@@ -6,11 +6,10 @@ class PostsController < ApplicationController
   def create
     @user = current_user
     post = @user.posts.new(post_params)
-    p "--------------------#{post_params}---------------------"
     if post.save
       
     else
-      p "================#{post.errors.count}================="
+      flash.now[:errors] = post.errors.full_messages
       render new_post_path
     end
   end
