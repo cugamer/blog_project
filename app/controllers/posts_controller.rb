@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
   end
   
   def destroy
@@ -38,15 +39,12 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
-    p " =============================#{post_params}======================"
     @post.attributes = post_params
-    if !@post.save
-      p @post.errors.full_messages
-      flash[:errors] = @post.errors.full_messages
-      p flash
-      redirect_to edit_post_path
-    else
+    if @post.save
       redirect_to @post
+    else
+      flash[:errors] = @post.errors.full_messages
+      redirect_to edit_post_path
     end
     
   end

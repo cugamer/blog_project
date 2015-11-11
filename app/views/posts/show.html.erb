@@ -1,5 +1,6 @@
 <% provide(:title, @post.title.truncate(20)) %>
 
+<%= link_to "All #{@user.user_name}s posts", user_posts_path(@user.id) %>
 
 <p>
 <%= link_to "Delete post?", post_path(@post.id), 
