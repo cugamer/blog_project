@@ -4,12 +4,9 @@
 
 <% @user_posts.each do |post| %>
   <h4><%= link_to post.title, post_path(post.id) %></h4>
-  <p>
-    <%= link_to "Delete post?", 
-        post_path(post.id), method: :delete,
-        data: {confirm: 'Are you sure?' }
-        %>
-    <%= link_to "Edit post", edit_post_path(post.id) %>
-  </p>
+  
+  <% @post = post %> <!-- _edit_delete_links needs an @post variable -->
+  <%= render 'shared/edit_delete_links' %>
+  
   <p><%= simple_format post.body.truncate(500) %></p>
 <% end %>

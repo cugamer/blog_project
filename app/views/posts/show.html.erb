@@ -2,14 +2,7 @@
 
 <%= link_to "All #{@user.user_name}s posts", user_posts_path(@user.id) %>
 
-<p>
-<%= link_to "Delete post?", post_path(@post.id), 
-      method: :delete, 
-      data: {confirm: 'Are you sure?' } %>
-<%= link_to "Edit Post", edit_post_path(@post.id) %>
-  
-</p>
-
+<%= render 'shared/edit_delete_links' %>
 
 <div class="center jumbotron">
   <h2><%= @post.title %></h2>
