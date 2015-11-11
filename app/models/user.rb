@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
+  
   validates :user_name, presence: true, length: { maximum: 50 }
   validates :name, presence: true, length: { maximum: 50 }
   
@@ -9,8 +11,4 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   
   has_secure_password
-  
-  def logged_in?
-    !self.current_user.nil?
-  end
 end
