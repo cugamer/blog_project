@@ -30,6 +30,9 @@ gem 'autoprefixer-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Implement pagination
+gem 'will_paginate', '~>3.0.7'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   
   def user_posts
     @user = User.find(params[:id])
+    @user_posts = @user.posts.paginate(:page => params[:page], :per_page => 5)
   end
   
   def new

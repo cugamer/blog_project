@@ -1,4 +1,8 @@
-<% @user.posts.all.each do |post| %>
+<% provide(:title, "#{@user.user_name}s posts") %>
+
+<%= will_paginate @user_posts %>
+
+<% @user_posts.each do |post| %>
   <h4><%= post.title %></h4>
   <p><%= post.body %></p>
-<% end %>>
+<% end %>
