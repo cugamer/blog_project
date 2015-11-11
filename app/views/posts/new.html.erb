@@ -1,7 +1,7 @@
 <% provide(title: "Submit a new post") %>
 
 <h3>Create a new post here.</h3>
-<%= form_for :posts, url: posts_path do |f| %>
+<%= form_for :post, url: posts_path do |f| %>
   <%= render 'shared/error_messages' %>
   <%= f.label :title %>
   <%= f.text_field :title %>
