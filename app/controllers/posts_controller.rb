@@ -36,6 +36,21 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
   
+  def update
+    @post = Post.find(params[:id])
+    p " =============================#{post_params}======================"
+    @post.attributes = post_params
+    if !@post.save
+      p @post.errors.full_messages
+      flash[:errors] = @post.errors.full_messages
+      p flash
+      redirect_to edit_post_path
+    else
+      redirect_to @post
+    end
+    
+  end
+  
   private
     def post_params
       params.require(:post).permit(:title, :body)
