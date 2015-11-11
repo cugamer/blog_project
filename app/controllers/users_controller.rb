@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the club!"
       redirect_to @user
     else
-      flash[:errors] = @user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       render 'new'
     end
   end
