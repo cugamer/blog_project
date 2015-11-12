@@ -3,16 +3,16 @@ Rails.application.routes.draw do
   get 'posts/user_posts/:id' => 'posts#user_posts', as: 'user_posts'
 
   root                     'static#home'
-  get 'about'               => 'static#about'
-  get 'help'                => 'static#help'
-  
-  get 'login'               => 'sessions#new'
-  post 'login'              => 'sessions#create'
-  delete 'logout'           => 'sessions#destroy'
+  get 'about'                => 'static#about'
+  get 'help'                 => 'static#help'
+   
+  get 'login'                => 'sessions#new'
+  post 'login'               => 'sessions#create'
+  delete 'logout'            => 'sessions#destroy'
 
-  get 'new_follow/:id'      => 'follows#create', as: 'new_follow'
-  get 'list_follow_posts'   => 'follows#index'
-  delete 'unfollow'         => 'follows#destroy'
+  get 'new_follow/:id'       => 'follows#create', as: 'new_follow'
+  get 'list_follow_posts'    => 'follows#index'
+  delete 'unfollow/:id'      => 'follows#destroy', as: 'unfollow'
 
   resources 'users'
   resources 'posts'

@@ -17,5 +17,9 @@ class FollowsController < ApplicationController
   end
   
   def destroy
+    follow = Follow.find_by(followed_user_id: params[:id])
+    p "=====================#{follow.followed_user_id}"
+    follow.destroy
+    redirect_to list_follow_posts_path
   end
 end
