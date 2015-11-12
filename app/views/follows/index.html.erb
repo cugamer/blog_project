@@ -11,6 +11,6 @@
       <%= simple_format post.body.truncate(500) %>
     </div>
   </div>
-  
-
 <% end %>
+
+<%= will_paginate @post_feed %>

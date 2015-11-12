@@ -13,7 +13,7 @@ class FollowsController < ApplicationController
     follow_ids = []
     following.map{ |fol| follow_ids << fol.followed_user_id }
     @user = current_user
-    @post_feed = Post.where(user_id: follow_ids).order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+    @post_feed = Post.where(user_id: follow_ids).order(created_at: :desc).paginate(:page => params[:page], :per_page => 20)
   end
   
   def destroy
