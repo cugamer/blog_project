@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
+  has_many :follows, dependent: :destroy
   
   validates :user_name, presence: true, length: { maximum: 50 }
   validates :name, presence: true, length: { maximum: 50 }
