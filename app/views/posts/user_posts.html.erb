@@ -1,5 +1,7 @@
 <% provide(:title, "#{@user.user_name}s posts") %>
 
+<%= render 'shared/follow_unfollow' %>
+
 <%= will_paginate @user_posts %>
 
 <% @user_posts.order(created_at: :desc).each do |post| %>

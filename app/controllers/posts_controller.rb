@@ -8,6 +8,8 @@ class PostsController < ApplicationController
   def user_posts
     @user = User.find(params[:id])
     @user_posts = @user.posts.paginate(:page => params[:page], :per_page => 5)
+    @following = Follow.where(user_id: current_user.id, followed_user_id: @user.id).exists?
+    @self = current_user.id == @user.id
   end
   
   def new
