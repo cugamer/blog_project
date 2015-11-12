@@ -1,8 +1,10 @@
 <%= form_for :comment, url: comment_path do |f| %>
   <%= render 'shared/error_messages' %>
   
+  <%= f.hidden_field :post_id, :value => @post.id %>
+  
   <%= f.label "Enter comment" %>
-  <%= f.text_area :comment %>
+  <%= f.text_area :comment_text %>
   
   <%= f.submit "Submit comment" %>
 
