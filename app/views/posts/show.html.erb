@@ -2,7 +2,14 @@
 
 <p>
   <%= link_to "All #{@user.user_name}s posts", user_posts_path(@user.id) %>
-  <%= link_to "Follow #{@user.user_name}s posts", new_follow_path(@user.id) %>
+  <div>
+    <% if @following %>
+      
+    <% else %>
+      <%= link_to "Follow #{@user.user_name}s posts", new_follow_path(@user.id) %>
+    <% end %>
+  </div>
+  
   
 </p>
 

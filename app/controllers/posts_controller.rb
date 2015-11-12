@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
+    @following = Follow.where(user_id: current_user.id, followed_user_id: @user.id).exists?
   end
   
   def destroy
