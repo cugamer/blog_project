@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     @following = Follow.where(user_id: current_user.id, followed_user_id: @user.id).exists?
+    @self = current_user.id == @user.id
   end
   
   def destroy
