@@ -3,7 +3,10 @@
 <%= will_paginate @user_posts %>
 
 <% @user_posts.each do |post| %>
-  <h4><%= link_to post.title, post_path(post.id) %></h4>
+  <h4>
+    <%= link_to post.title, post_path(post.id) %> --
+    <%= post.created_at.strftime("%B %-d, %Y") %>  
+  </h4>
   
   <% @post = post %> <!-- _edit_delete_links needs an @post variable -->
   <%= render 'shared/edit_delete_links' %>

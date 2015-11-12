@@ -1,11 +1,17 @@
 <% provide(:title, @post.title.truncate(20)) %>
 
-<%= link_to "All #{@user.user_name}s posts", user_posts_path(@user.id) %>
+<p>
+  <%= link_to "All #{@user.user_name}s posts", user_posts_path(@user.id) %>
+  
+</p>
 
 <%= render 'shared/edit_delete_links' %>
 
 <div class="center jumbotron">
-  <h2><%= @post.title %></h2>
+  <h2>
+    <%= @post.title %> --
+    <%= @post.created_at.strftime("%B %-d, %Y") %>  
+  </h2>
   <div class="post-text">
     <%= simple_format @post.body %>
     <!-- simple_format is a helper which formats the text into HTML using basic
