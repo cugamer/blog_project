@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   get 'posts/user_posts/:id' => 'posts#user_posts', as: 'user_posts'
+  post 'comment'             => 'comments#create'
 
   root                     'static#home'
   get 'about'                => 'static#about'
