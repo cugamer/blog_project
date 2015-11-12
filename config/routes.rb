@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post 'login'              => 'sessions#create'
   delete 'logout'           => 'sessions#destroy'
 
-  post 'new_follow'         => 'follows#create'
+  get 'new_follow/:id'      => 'follows#create', as: 'new_follow'
   get 'list_follow_posts'   => 'follows#index'
   delete 'unfollow'         => 'follows#destroy'
 
