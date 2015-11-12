@@ -8,8 +8,11 @@ test_user = User.create!(user_name:               "snow",
     prng = Random.new
     title = Faker::Lorem.words(1..10).join(" ")
     body = Faker::Lorem.paragraphs(prng.rand(1..100)).join("\n")
+    date_time = Faker::Time.between(14.days.ago, Time.now)
     test_user.posts.create(title: title,
-                      body: body)
+                      body: body,
+                      created_at: date_time,
+                      updated_at: date_time)
   end
 
 50.times do
@@ -26,7 +29,10 @@ test_user = User.create!(user_name:               "snow",
     prng = Random.new
     title = Faker::Lorem.words.join(" ")
     body = Faker::Lorem.paragraphs(prng.rand(1..200)).join("\n")
+    date_time = Faker::Time.between(14.days.ago, Time.now)
     user.posts.create(title: title,
-                      body: body)
+                      body: body,
+                      created_at: date_time,
+                      updated_at: date_time)
   end
 end
