@@ -2,7 +2,7 @@
 
 <%= will_paginate @user_posts %>
 
-<% @user_posts.each do |post| %>
+<% @user_posts.order(created_at: :desc).each do |post| %>
   <h4>
     <%= link_to post.title, post_path(post.id) %> --
     <%= post.created_at.strftime("%B %-d, %Y") %>  
