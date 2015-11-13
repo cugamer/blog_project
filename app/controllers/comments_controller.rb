@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.user_id = current_user.id
     if !comment.save
+      p comment.errors.full_messages
+      p "========================================"
       flash[:errors] = comment.errors.full_messages
     end
     
