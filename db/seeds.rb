@@ -24,7 +24,7 @@ test_user = User.create!(user_name:               "snow",
   name = Faker::Name.name
   email = Faker::Internet.email
   password = "password"
-  user = User.create!(user_name:              user_name, 
+  user = User.create!(user_name:             user_name, 
                      name:                   name, 
                      email:                  email, 
                      password:               password, 
@@ -40,7 +40,7 @@ test_user = User.create!(user_name:               "snow",
                       updated_at: date_time)
     prng.rand(0..10).times do
     post.comments.create!(user_id: user.id,
-                          comment_text: Faker::Lorem.paragraph(3))
+                          comment_text: Faker::Lorem.paragraph)
     end
   end
 end

@@ -24,7 +24,8 @@
 </div>
 
 <div id="comment-area">
-  <%= @comments.map do |comment| %>
+
+  <% @comments.each do |comment| %>
     <p>
       <%= comment.comment_text %>
     </p>

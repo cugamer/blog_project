@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.user_id = current_user.id
     if !comment.save
-      
+      flash[:errors] = comment.errors.full_messages
     end
     
     redirect_to post_path(comment_params[:post_id])
