@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   post 'comment'             => 'comments#create'
   delete 'comment/:id'       => 'comments#destroy', as: 'delete_comment'
-  patch 'comment/:id'        => 'comments#edit', as: 'edit_comment'
+  patch 'comment/:post_id'   => 'comments#edit', as: 'edit_comment'
 
   resources 'users'
   resources 'posts'

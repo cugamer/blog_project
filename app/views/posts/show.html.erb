@@ -23,16 +23,28 @@
 
 <div id="comment-area">
   <% @comments.each do |comment| %>
-    <p>
+    <div>
       <% commentor = User.find(comment.user_id) %>
       <%= comment.comment_text %> <br />
       <%= comment.created_at.strftime("%B %-d, %Y") %>
       <%= link_to commentor.user_name, user_posts_path(comment.user_id) %>
+      
       <% if logged_in? && authorized_user?(commentor.id) %>
         <%= link_to "Delete comment?", delete_comment_path(comment.id),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
+              
+        <a href="#form" data-toggle="collapse">Edit comment</a>
+        <div id="form" class="collapse">
+          <%= form_for :comment, url: edit_comment_path(comment.id), method: :patch do |f| %>
+            <%= f.label :comment_text %>
+            <%= f.text_area :comment_text %>
+            
+            <%= f.submit "Submit edit" %>
+          <% end %>
+        </div>
+        
       <% end %>
-    </p>
+    </div>
   <% end %>
 </div>
