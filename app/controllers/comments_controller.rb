@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     if !comment.save
       flash[:errors] = comment.errors.full_messages
     end
-    
     redirect_to post_path(comment_params[:post_id])
   end
   
@@ -17,7 +16,14 @@ class CommentsController < ApplicationController
   end
   
   def edit
+    comment = Comment.find(params[:id])
+    comment.comment_text = comment_params[:comment_text]
+    if !comment.save
+      flash[:errors] = comment.errors.full_messages
+    end
     
+    comment.save
+    redirect_to post_path(comment_params[:post_id])
   end
   
   private

@@ -4,6 +4,8 @@
 
 <%= render 'shared/edit_delete_links' %>
 
+<%= render 'shared/error_messages' %>
+
 <div class="center jumbotron">
   <h2>
     <%= @post.title %> --
@@ -22,7 +24,7 @@
 </div>
 
 <div id="comment-area">
-  <% @comments.each do |comment| %>
+  <% @comments.each_with_index do |comment, index| %>
     <div>
       <% commentor = User.find(comment.user_id) %>
       <%= comment.comment_text %> <br />
@@ -34,11 +36,13 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
               
-        <a href="#form" data-toggle="collapse">Edit comment</a>
-        <div id="form" class="collapse">
+        <a href="#form-<%= index %>" data-toggle="collapse">Edit comment</a>
+        <div id="form-<%= index %>" class="collapse">
           <%= form_for :comment, url: edit_comment_path(comment.id), method: :patch do |f| %>
+            <%= f.hidden_field :post_id, :value => @post.id %>
+          
             <%= f.label :comment_text %>
-            <%= f.text_area :comment_text %>
+            <%= f.text_area :comment_text, :value => comment.comment_text %>
             
             <%= f.submit "Submit edit" %>
           <% end %>
