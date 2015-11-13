@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'posts/user_posts/:id' => 'posts#user_posts', as: 'user_posts'
-  post 'comment'             => 'comments#create'
-  delete 'comment/:id'       => 'comments#destroy', as: 'delete_comment'
-
-  root                     'static#home'
+  root                       'static#home'
   get 'about'                => 'static#about'
   get 'help'                 => 'static#help'
    
@@ -15,6 +10,13 @@ Rails.application.routes.draw do
   get 'new_follow/:id'       => 'follows#create', as: 'new_follow'
   get 'list_follow_posts'    => 'follows#index'
   delete 'unfollow/:id'      => 'follows#destroy', as: 'unfollow'
+  
+  get 'sessions/new'
+  get 'posts/user_posts/:id' => 'posts#user_posts', as: 'user_posts'
+  
+  post 'comment'             => 'comments#create'
+  delete 'comment/:id'       => 'comments#destroy', as: 'delete_comment'
+  patch 'comment/:id'        => 'comments#edit', as: 'edit_comment'
 
   resources 'users'
   resources 'posts'

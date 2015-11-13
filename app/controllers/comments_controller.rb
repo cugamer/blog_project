@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.user_id = current_user.id
     if !comment.save
-      p comment.errors.full_messages
-      p "========================================"
       flash[:errors] = comment.errors.full_messages
     end
     
@@ -16,6 +14,10 @@ class CommentsController < ApplicationController
     post = Post.find(comment.post_id)
     comment.destroy
     redirect_to post_path(post.id)
+  end
+  
+  def edit
+    
   end
   
   private
