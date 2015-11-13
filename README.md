@@ -15,7 +15,7 @@ This simulates an IDE built on Unix.  This project should run properly on any *n
 machine (Linux, MacOS X, etc.) but getting this to work on Windows is difficult due 
 to lack of support of the necessary tools.  If the user has any difficulties, I
 recommend creating a Cloud9 account (seriously, it's awesome) and uploading the 
-project there.-
+project there._
 
 1. Clone the project.  
 2. Make sure you have Ruby installed.  If not, get it [here](https://www.ruby-lang.org/en/downloads/). 
@@ -37,7 +37,6 @@ Components used
 * Faker
 * Sass CSS
 * Bootstrap
-* 
 
 Still to do
 -----------
