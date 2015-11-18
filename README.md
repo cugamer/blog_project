@@ -15,7 +15,7 @@ This simulates an IDE built on Unix.  This project should run properly on any *n
 machine (Linux, MacOS X, etc.) but getting this to work on Windows is difficult due 
 to lack of support of the necessary tools.  If the user has any difficulties, I
 recommend creating a Cloud9 account (seriously, it's awesome) and uploading the 
-project there._
+project there.
 
 1. Clone the project.  
 2. Make sure you have Ruby installed.  If not, get it [here](https://www.ruby-lang.org/en/downloads/). 
@@ -23,8 +23,8 @@ project there._
 4. Navigate to the root folder of the project.
 5. Run "bundle install" and rake db:migrate to set things up.  This will also seed
 the database.
-6. Rune "rails server" to get things running.  On Cloud9 run "rails s -b $IP -p $PORT"
-7. Open your browser and navigate to "http://localhost:3000"  There you should seed
+6. Run "rails server" to get things running.  On Cloud9 run "rails s -b $IP -p $PORT"
+7. Open your browser and navigate to "http://localhost:3000"  There you should see
 the page.  If you are running this on Cloud9 the URL will be different, the terminal
 will show you the correct URL
 8. When you're done, simply hit ctrl/cmd + c to quit the server.
