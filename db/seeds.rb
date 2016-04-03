@@ -1,6 +1,6 @@
-test_user = User.create!(user_name:               "snow",
-                        name:                     "John Smith",
-                        email:                    "john@smith.com",
+test_user = User.create!(user_name:               "sample",
+                        name:                     "Sample",
+                        email:                    "sample@sample.com",
                         password:                 "password",
                         password_confirmation:    "password")
 
