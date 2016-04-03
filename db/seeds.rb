@@ -44,3 +44,7 @@ test_user = User.create!(user_name:               "sample",
     end
   end
 end
+
+5.times do |user|
+  Follow.create({user_id: 1, followed_user_id: user + 2})
+end

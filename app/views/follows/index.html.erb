@@ -1,12 +1,12 @@
 <%= provide(:title, "#{@user.user_name}s feed") %>
 
-<h2>Your feed</h2>
+<h2><%= @user.user_name %>'s feed</h2>
 
 <%= will_paginate @post_feed %>
 
 <% @post_feed.each do |post| %>
   <div>
-    <p><%= link_to post.title, post_path(post.id) %>  --  <%= post.created_at.strftime("%B %-d, %Y") %></p>
+    <p><%= link_to post.title, post_path(post.id) %>  --  <%= post.created_at.strftime("%B %-d, %Y") %> --  <%= User.find(post.user_id).user_name %></p>
     <div>
       <%= simple_format post.body.truncate(500) %>
     </div>
